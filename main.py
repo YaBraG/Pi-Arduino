@@ -12,6 +12,6 @@ if __name__ == '__main__':
         x = input("Enter Pan and Tilt separated with a semicolon (;): ")
         b = x.encode('utf-8')
         ser.write(b)
-        line = ser.readline().decode('utf-8').rstrip()
-        print(line)
+        # line = ser.readline().decode('utf-8').rstrip()
+        # print(line)
         time.sleep(1)
