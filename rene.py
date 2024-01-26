@@ -13,13 +13,13 @@ upper_color_bound = None
 tracking_enabled = False
 floatPserv = 90
 floatTserv = 90
-intPserv=90
-intTserv=90
-strPserv=""
-strTserv=""
-pan_x=""
-tilt_y=""
-addition=0.2
+intPserv = 90
+intTserv = 90
+strPserv = ""
+strTserv = ""
+pan_x = ""
+tilt_y = ""
+addition = 0.4
 try:
     arduino = serial.Serial('/dev/ttyACM1', 9600, timeout=1)
 except:
@@ -54,7 +54,7 @@ def select_color(event, x, y, flags, param):
 cv2.namedWindow("Color Tracking with Click")
 cv2.setMouseCallback("Color Tracking with Click", select_color)
 
-targetsquare = 100
+targetsquare = 25
 
 while True:
     # Capture frame-by-frame
@@ -125,8 +125,8 @@ while True:
                         floatTserv = 180
                     if floatTserv < 90:
                         floatTserv = 90
-                    floatPserv=round(floatPserv,2)
-                    floatTserv=round(floatTserv,2)
+                    floatPserv = round(floatPserv, 2)
+                    floatTserv = round(floatTserv, 2)
                     intPserv = int(floatPserv)
                     intTserv = int(floatTserv)
                     strPserv = str(intPserv)
@@ -135,7 +135,8 @@ while True:
 
                 # print("Relative Position: (", relative_x, " , ", relative_y,
                 #       ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
-                print("| FPan: ", floatPserv, " | FTilt: ", floatTserv," | IPan: ",intPserv , " | ITilt: ", intTserv, " | SPan: ", strPserv, " | STilt: ",strTserv,' |')
+                print("| FPan: ", floatPserv, " | FTilt: ", floatTserv, " | IPan: ", intPserv,
+                      " | ITilt: ", intTserv, " | SPan: ", strPserv, " | STilt: ", strTserv, ' |')
     # Display the resulting frame
     cv2.imshow('Color Tracking with Click', frame)
 
