@@ -124,14 +124,17 @@ while True:
                         floatTserv = 180
                     if floatTserv < 90:
                         floatTserv = 90
+                    floatPserv=round(floatPserv,2)
+                    floatTserv=round(floatTserv,2)
                     intPserv = int(floatPserv)
                     intTserv = int(floatTserv)
                     strPserv = str(intPserv)
                     strTserv = str(strTserv)
                     arduino.write((strPserv+";"+strTserv+"\n").encode('utf-8'))
 
-                print("Relative Position: (", relative_x, " , ", relative_y,
-                      ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
+                # print("Relative Position: (", relative_x, " , ", relative_y,
+                #       ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
+                print("| FPan: ", floatPserv, " | FTilt: ", floatTserv," | IPan: ",intPserv , " | ITilt: ", intTserv, " | SPan: ", strPserv, " | STilt: ",strTserv,' |')
     # Display the resulting frame
     cv2.imshow('Color Tracking with Click', frame)
 
