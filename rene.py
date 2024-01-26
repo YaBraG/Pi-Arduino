@@ -103,10 +103,10 @@ while True:
                     pserv = pserv-1
                 if relative_y < 0:
                     tilt_y = "tilt up"
-                    tserv = tserv+1
+                    tserv = tserv-1
                 else:
                     tilt_y = "tilt down"
-                    tserv = tserv-1
+                    tserv = tserv+1
                 if pserv > 180:
                     pserv = 180
                 if pserv < 0:
