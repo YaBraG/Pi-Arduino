@@ -19,6 +19,7 @@ strPserv=""
 strTserv=""
 pan_x=""
 tilt_y=""
+addition=0.1
 try:
     arduino = serial.Serial('/dev/ttyACM1', 9600, timeout=1)
 except:
@@ -106,16 +107,16 @@ while True:
                 else:
                     if relative_x < 0:
                         pan_x = "pan left"
-                        floatPserv = floatPserv+0.01
+                        floatPserv = floatPserv+addition
                     elif relative_x > 0:
                         pan_x = "pan right"
-                        floatPserv = floatPserv-0.01
+                        floatPserv = floatPserv-addition
                     if relative_y < 0:
                         tilt_y = "tilt up"
-                        floatTserv = floatTserv+0.01
+                        floatTserv = floatTserv+addition
                     elif relative_y > 0:
                         tilt_y = "tilt down"
-                        floatTserv = floatTserv-0.01
+                        floatTserv = floatTserv-addition
                     if floatPserv > 180:
                         floatPserv = 180
                     if floatPserv < 0:
