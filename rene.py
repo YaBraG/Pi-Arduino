@@ -11,8 +11,10 @@ color_to_track = None
 lower_color_bound = None
 upper_color_bound = None
 tracking_enabled = False
-pserv = 90
-tserv = 90
+floatPserv = 90
+floatTserv = 90
+intPserv=90
+intTserv=90
 pan_x=""
 tilt_y=""
 try:
@@ -100,34 +102,34 @@ while True:
                     cv2.putText(frame, "FIRE", (center_x - targetsquare - 25, center_y -
                                 targetsquare - 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 else:
-                    pserv = int(pserv)
-                    tserv = int(tserv)
                     if relative_x < 0:
                         pan_x = "pan left"
-                        pserv = pserv+1
+                        floatPserv = floatPserv+0.01
                     elif relative_x > 0:
                         pan_x = "pan right"
-                        pserv = pserv-1
+                        floatPserv = floatPserv-0.01
                     if relative_y < 0:
                         tilt_y = "tilt up"
-                        tserv = tserv+1
+                        floatTserv = floatTserv+0.01
                     elif relative_y > 0:
                         tilt_y = "tilt down"
-                        tserv = tserv-1
-                    if pserv > 180:
-                        pserv = 180
-                    if pserv < 0:
-                        pserv = 0
-                    if tserv > 180:
-                        tserv = 180
-                    if tserv < 90:
-                        tserv = 90
-                    pserv = str(pserv)
-                    tserv = str(tserv)
-                    arduino.write((pserv+";"+tserv+"\n").encode('utf-8'))
+                        floatTserv = floatTserv-0.01
+                    if floatPserv > 180:
+                        floatPserv = 180
+                    if floatPserv < 0:
+                        floatPserv = 0
+                    if floatTserv > 180:
+                        floatTserv = 180
+                    if floatTserv < 90:
+                        floatTserv = 90
+                    intPserv = int(floatPserv)
+                    intTserv = int(floatTserv)
+                    strPserv = str(intPserv)
+                    strTserv = str(strTserv)
+                    arduino.write((strPserv+";"+strTserv+"\n").encode('utf-8'))
 
                 print("Relative Position: (", relative_x, " , ", relative_y,
-                      ") , (", pan_x, ",", tilt_y, ") (", pserv, " , ", tserv, ')')
+                      ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
     # Display the resulting frame
     cv2.imshow('Color Tracking with Click', frame)
 
