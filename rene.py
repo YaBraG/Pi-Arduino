@@ -11,7 +11,7 @@ color_to_track = None
 lower_color_bound = None
 upper_color_bound = None
 tracking_enabled = False
-pserv = 90
+pserv = 0
 tserv = 90
 
 try:
