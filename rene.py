@@ -97,10 +97,10 @@ while True:
                 tserv = int(tserv)
                 if relative_x < 0:
                     pan_x = "pan left"
-                    pserv = pserv-1
+                    pserv = pserv+1
                 else:
                     pan_x = "pan right"
-                    pserv = pserv+1
+                    pserv = pserv-1
                 if relative_y < 0:
                     tilt_y = "tilt up"
                     tserv = tserv+1
