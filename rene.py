@@ -115,6 +115,8 @@ while True:
                     tserv = 180
                 if tserv < 90:
                     tserv = 90
+                pserv = str(pserv)
+                tserv = str(tserv)
 
 
                 arduino.write((pserv+";"+tserv+"\n").encode('utf-8'))
@@ -126,8 +128,6 @@ while True:
 
                 print("Relative Position: (", relative_x, " , ", relative_y,
                       ") , (", pan_x, ",", tilt_y, ") (", pserv, " , ", tserv, ')')
-                pserv = str(pserv)
-                tserv = str(tserv)
     # Display the resulting frame
     cv2.imshow('Color Tracking with Click', frame)
 
