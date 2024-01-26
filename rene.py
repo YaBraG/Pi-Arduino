@@ -15,6 +15,8 @@ floatPserv = 90
 floatTserv = 90
 intPserv=90
 intTserv=90
+strPserv=""
+strTserv=""
 pan_x=""
 tilt_y=""
 try:
