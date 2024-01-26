@@ -19,7 +19,7 @@ strPserv = ""
 strTserv = ""
 pan_x = ""
 tilt_y = ""
-addition = 0.4
+addition = 0.5
 try:
     arduino = serial.Serial('/dev/ttyACM1', 9600, timeout=1)
 except:
