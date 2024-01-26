@@ -124,7 +124,6 @@ while True:
                     pserv = str(pserv)
                     tserv = str(tserv)
                     arduino.write((pserv+";"+tserv+"\n").encode('utf-8'))
-                    time.sleep(0.1)
 
                 print("Relative Position: (", relative_x, " , ", relative_y,
                       ") , (", pan_x, ",", tilt_y, ") (", pserv, " , ", tserv, ')')
