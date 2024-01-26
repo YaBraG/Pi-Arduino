@@ -116,10 +116,6 @@ while True:
                 if tserv < 90:
                     tserv = 90
 
-                print("Relative Position: (", relative_x, " , ", relative_y,
-                      ") , (", pan_x, ",", tilt_y, ") (", pserv, " , ", tserv, ')')
-                pserv = str(pserv)
-                tserv = str(tserv)
 
                 arduino.write((pserv+";"+tserv+"\n").encode('utf-8'))
 
@@ -128,6 +124,10 @@ while True:
                     cv2.putText(frame, "FIRE", (center_x - targetsquare - 25, center_y -
                                 targetsquare - 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
+                print("Relative Position: (", relative_x, " , ", relative_y,
+                      ") , (", pan_x, ",", tilt_y, ") (", pserv, " , ", tserv, ')')
+                pserv = str(pserv)
+                tserv = str(tserv)
     # Display the resulting frame
     cv2.imshow('Color Tracking with Click', frame)
 
