@@ -122,7 +122,6 @@ while True:
                 tserv = str(tserv)
 
                 arduino.write((pserv+";"+tserv+"\n").encode('utf-8'))
-                time.sleep(0.60)
 
                 # Check if the target is within the specified range
                 if -targetsquare <= relative_x <= targetsquare and -targetsquare <= relative_y <= targetsquare:
