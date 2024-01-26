@@ -13,7 +13,8 @@ upper_color_bound = None
 tracking_enabled = False
 pserv = 90
 tserv = 90
-
+pan_x=""
+tilt_y=""
 try:
     arduino = serial.Serial('/dev/ttyACM1', 9600, timeout=1)
 except:
