@@ -11,7 +11,7 @@ color_to_track = None
 lower_color_bound = None
 upper_color_bound = None
 tracking_enabled = False
-pserv =90
+pserv = 90
 tserv = 90
 
 try:
@@ -94,23 +94,23 @@ while True:
 
                 relative_x, relative_y = cX - center_x, cY - center_y
 
-
-                pserv = int(pserv)
-                tserv = int(tserv)
+                # Check if the target is within the specified range
                 if -targetsquare <= relative_x <= targetsquare and -targetsquare <= relative_y <= targetsquare:
                     cv2.putText(frame, "FIRE", (center_x - targetsquare - 25, center_y -
                                 targetsquare - 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 else:
+                    pserv = int(pserv)
+                    tserv = int(tserv)
                     if relative_x < 0:
                         pan_x = "pan left"
                         pserv = pserv+1
-                    else:
+                    elif relative_x > 0:
                         pan_x = "pan right"
                         pserv = pserv-1
                     if relative_y < 0:
                         tilt_y = "tilt up"
                         tserv = tserv-1
-                    else:
+                    elif relative_y > 0:
                         tilt_y = "tilt down"
                         tserv = tserv+1
                     if pserv > 180:
@@ -123,11 +123,8 @@ while True:
                         tserv = 90
                     pserv = str(pserv)
                     tserv = str(tserv)
-
-
                     arduino.write((pserv+";"+tserv+"\n").encode('utf-8'))
-
-                # Check if the target is within the specified range
+                    time.sleep(0.1)
 
                 print("Relative Position: (", relative_x, " , ", relative_y,
                       ") , (", pan_x, ",", tilt_y, ") (", pserv, " , ", tserv, ')')
