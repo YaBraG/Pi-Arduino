@@ -48,7 +48,7 @@ def select_color(event, x, y, flags, param):
 cv2.namedWindow("Color Tracking with Click")
 cv2.setMouseCallback("Color Tracking with Click", select_color)
 
-targetsquare = 25
+targetsquare = 100
 
 while True:
     # Capture frame-by-frame
