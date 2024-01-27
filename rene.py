@@ -131,7 +131,8 @@ while True:
                     intTserv = int(floatTserv)
                     strPserv = str(intPserv)
                     strTserv = str(intTserv)
-                    arduino.write((strPserv+";"+strTserv+"\n").encode('utf-8'))
+                    
+                arduino.write((strPserv+";"+strTserv+"\n").encode('utf-8'))
 
                 # print("Relative Position: (", relative_x, " , ", relative_y,
                 #       ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
