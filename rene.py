@@ -41,7 +41,7 @@ def select_color(event, x, y, flags, param):
             np.uint8([[color_to_track]]), cv2.COLOR_BGR2HSV)[0][0]
 
         # Define a range around the selected color for tracking
-        hue_sensitivity = 10
+        hue_sensitivity = 5
         sv_sensitivity = 40
         lower_color_bound = np.array([max(hsv_color[0] - hue_sensitivity, 0), max(
             hsv_color[1] - sv_sensitivity, 0), max(hsv_color[2] - sv_sensitivity, 0)])
@@ -131,7 +131,7 @@ while True:
                     intTserv = int(floatTserv)
                     strPserv = str(intPserv)
                     strTserv = str(intTserv)
-                    
+
                 arduino.write((strPserv+";"+strTserv+"\n").encode('utf-8'))
 
                 # print("Relative Position: (", relative_x, " , ", relative_y,
