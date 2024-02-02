@@ -64,9 +64,12 @@ pan_x = ""
 tilt_y = ""
 addition = 2
 dinamixLim = 1023
+targetsquare = 25
+motor1.set_goal_position(512)
+motor2.set_goal_position(383)
+
+
 # Function to handle mouse clicks
-
-
 def select_color(event, x, y, flags, param):
     global color_to_track, lower_color_bound, upper_color_bound, tracking_enabled
 
@@ -79,7 +82,7 @@ def select_color(event, x, y, flags, param):
             np.uint8([[color_to_track]]), cv2.COLOR_BGR2HSV)[0][0]
 
         # Define a range around the selected color for tracking
-        hue_sensitivity = 5
+        hue_sensitivity = 1
         sv_sensitivity = 10
         lower_color_bound = np.array([max(hsv_color[0] - hue_sensitivity, 0), max(
             hsv_color[1] - sv_sensitivity, 0), max(hsv_color[2] - sv_sensitivity, 0)])
@@ -92,9 +95,6 @@ def select_color(event, x, y, flags, param):
 cv2.namedWindow("Color Tracking with Click")
 cv2.setMouseCallback("Color Tracking with Click", select_color)
 
-targetsquare = 25
-motor1.set_goal_position(512)
-motor2.set_goal_position(383)
 
 while True:
     # Capture frame-by-frame
@@ -188,8 +188,6 @@ while True:
         motor1.set_goal_position(512)
         motor2.set_goal_position(383)
     elif key == ord('q'):
-        intPserv = 512
-        intTserv = 383
         motor1.set_goal_position(512)
         motor2.set_goal_position(383)
         break
