@@ -185,6 +185,8 @@ while True:
         tracking_enabled = False
         intPserv = 512
         intTserv = 383
+        floatPserv = 512
+        floatTserv = 383
         motor1.set_goal_position(512)
         motor2.set_goal_position(383)
     elif key == ord('q'):
