@@ -152,10 +152,10 @@ while True:
                         pan_x = "pan right"
                         floatPserv = floatPserv-addition
                     if relative_y < 0:
-                        tilt_y = "tilt up"
+                        tilt_y = "tilt down"
                         floatTserv = floatTserv+addition
                     elif relative_y > 0:
-                        tilt_y = "tilt down"
+                        tilt_y = "tilt up"
                         floatTserv = floatTserv-addition
                     if floatPserv > dinamixLim:
                         floatPserv = dinamixLim
