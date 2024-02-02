@@ -186,6 +186,8 @@ while True:
         motor1.set_goal_position(512)
         motor2.set_goal_position(383)
     elif key == ord('q'):
+        motor1.set_goal_position(512)
+        motor2.set_goal_position(383)
         break
 
 # Release the capture and close any open windows
