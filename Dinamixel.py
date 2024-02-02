@@ -62,7 +62,7 @@ intPserv = 512
 intTserv = 383
 pan_x = ""
 tilt_y = ""
-addition = 2
+addition = 3.5
 dinamixLim = 1023
 targetsquare = 25
 motor1.set_goal_position(512)
