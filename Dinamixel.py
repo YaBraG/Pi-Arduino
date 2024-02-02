@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 from AX12 import Ax12
 
+
 def remap(x, oMin, oMax, nMin, nMax):
 
     # range check
@@ -39,6 +40,7 @@ def remap(x, oMin, oMax, nMin, nMax):
         result = newMax - portion
 
     return result
+
 
 Ax12.DEVICENAME = '/dev/ttyUSB0'
 Ax12.BAUDRATE = 1000000
@@ -93,6 +95,8 @@ cv2.namedWindow("Color Tracking with Click")
 cv2.setMouseCallback("Color Tracking with Click", select_color)
 
 targetsquare = 25
+motor1.set_goal_position(512)
+motor2.set_goal_position(383)
 
 while True:
     # Capture frame-by-frame
@@ -155,18 +159,20 @@ while True:
                     elif relative_y > 0:
                         tilt_y = "tilt down"
                         floatTserv = floatTserv-addition
-                    if floatPserv > dinamixLim: floatPserv = dinamixLim
-                    if floatPserv < 0:          floatPserv = 0
-                    if floatTserv > dinamixLim: floatTserv = dinamixLim
-                    if floatTserv < 0:          floatTserv = 0
+                    if floatPserv > dinamixLim:
+                        floatPserv = dinamixLim
+                    if floatPserv < 0:
+                        floatPserv = 0
+                    if floatTserv > dinamixLim:
+                        floatTserv = dinamixLim
+                    if floatTserv < 0:
+                        floatTserv = 0
                     floatPserv = round(floatPserv, 2)
                     floatTserv = round(floatTserv, 2)
                     intPserv = int(floatPserv)
                     intTserv = int(floatTserv)
                     motor1.set_goal_position(intPserv)
                     motor2.set_goal_position(intTserv)
-
-                    
 
                 # print("Relative Position: (", relative_x, " , ", relative_y,
                 #       ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
