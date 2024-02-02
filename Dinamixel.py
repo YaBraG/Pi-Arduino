@@ -80,7 +80,7 @@ def select_color(event, x, y, flags, param):
 
         # Define a range around the selected color for tracking
         hue_sensitivity = 5
-        sv_sensitivity = 40
+        sv_sensitivity = 10
         lower_color_bound = np.array([max(hsv_color[0] - hue_sensitivity, 0), max(
             hsv_color[1] - sv_sensitivity, 0), max(hsv_color[2] - sv_sensitivity, 0)])
         upper_color_bound = np.array([min(hsv_color[0] + hue_sensitivity, 180), min(
