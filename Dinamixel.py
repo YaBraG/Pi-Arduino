@@ -183,6 +183,8 @@ while True:
     key = cv2.waitKey(1) & 0xFF
     if key == ord('n'):
         tracking_enabled = False
+        motor1.set_goal_position(512)
+        motor2.set_goal_position(383)
     elif key == ord('q'):
         break
 

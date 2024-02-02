@@ -259,9 +259,9 @@ class Ax12:
         """Write goal position."""
         self.set_register2(ADDR_AX_GOAL_POSITION_L, goal_pos)
 
-        if self.DEBUG:
-            self.print_status("Position of ", self.id,
-                              self.get_goal_position())
+        # if self.DEBUG:
+        #     self.print_status("Position of ", self.id,
+        #                       self.get_goal_position())
 
     def get_moving_speed(self):
         """Returns moving speed to goal position [0-1023]."""
