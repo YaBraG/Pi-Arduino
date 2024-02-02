@@ -62,7 +62,7 @@ intPserv = 512
 intTserv = 383
 pan_x = ""
 tilt_y = ""
-addition = 1
+addition = 2
 dinamixLim = 1023
 # Function to handle mouse clicks
 
@@ -153,10 +153,10 @@ while True:
                         floatPserv = floatPserv-addition
                     if relative_y < 0:
                         tilt_y = "tilt down"
-                        floatTserv = floatTserv+addition
+                        floatTserv = floatTserv-addition
                     elif relative_y > 0:
                         tilt_y = "tilt up"
-                        floatTserv = floatTserv-addition
+                        floatTserv = floatTserv+addition
                     if floatPserv > dinamixLim:
                         floatPserv = dinamixLim
                     if floatPserv < 0:
