@@ -62,7 +62,7 @@ intPserv = 512
 intTserv = 383
 pan_x = ""
 tilt_y = ""
-addition = 1
+addition = 1.5
 dinamixLim = 1023
 # Function to handle mouse clicks
 
