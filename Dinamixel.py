@@ -186,7 +186,7 @@ while True:
                     # motor1.set_goal_position(intPserv)
                     # motor2.set_goal_position(intTserv)
                     previous_errorX = errorX
-                    print(pid)
+                    print(pid," | ", cX, " | ", center_x)
 
                 # print("Relative Position: (", relative_x, " , ", relative_y,
                 #       ") , (", frame_height, ",", frame_width, ") (", floatPserv, " , ", floatTserv, ')')
