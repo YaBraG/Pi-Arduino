@@ -66,8 +66,8 @@ tilt_y = ""
 addition = 3.5
 dinamixLim = 1023
 targetsquare = 25
-Px = 3.2
-Dx = 1.8
+Px = 1
+Dx = 5
 Ix = 0.007
 i = 0
 previous_errorX = 0
@@ -159,7 +159,7 @@ while True:
                     if -targetsquare+5 < errorX < targetsquare+5:
                         i = i + (Ix * errorX)
                     pid = p + i + d
-                    
+
                     if pid > 1000:      pid = 1000 
                     if pid < -1000:     pid = -1000
 
@@ -218,6 +218,7 @@ while True:
     elif key == ord('q'):
         motor1.set_goal_position(512)
         motor2.set_goal_position(383)
+        time.sleep(0.5)
         break
 
 # Release the capture and close any open windows
