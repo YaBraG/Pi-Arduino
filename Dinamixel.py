@@ -2,6 +2,7 @@ import time
 import cv2
 import numpy as np
 from AX12 import Ax12
+from simple_pid import PID
 
 
 def remap(x, oMin, oMax, nMin, nMax):
@@ -65,6 +66,9 @@ tilt_y = ""
 addition = 3.5
 dinamixLim = 1023
 targetsquare = 25
+Px = 1
+Dx = 0
+Di = 0
 motor1.set_goal_position(512)
 motor2.set_goal_position(383)
 
@@ -172,10 +176,10 @@ while True:
                     motor1.set_goal_position(intPserv)
                     motor2.set_goal_position(intTserv)
 
-                # print("Relative Position: (", relative_x, " , ", relative_y,
-                #       ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
-                print("| FPan: ", floatPserv, " | FTilt: ", floatTserv, " | IPan: ", intPserv,
-                      " | ITilt: ", intTserv)
+                print("Relative Position: (", relative_x, " , ", relative_y,
+                      ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
+                # print("| FPan: ", floatPserv, " | FTilt: ", floatTserv, " | IPan: ", intPserv,
+                #       " | ITilt: ", intTserv)
     # Display the resulting frame
     cv2.imshow('Color Tracking with Click', frame)
 
