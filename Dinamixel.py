@@ -149,6 +149,7 @@ while True:
                     cv2.putText(frame, "FIRE", (center_x - targetsquare - 25, center_y -
                                 targetsquare - 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
                 else:
+
                     if relative_x < 0:
                         pan_x = "pan left"
                         floatPserv = floatPserv+addition
@@ -177,7 +178,7 @@ while True:
                     motor2.set_goal_position(intTserv)
 
                 print("Relative Position: (", relative_x, " , ", relative_y,
-                      ") , (", pan_x, ",", tilt_y, ") (", floatPserv, " , ", floatTserv, ')')
+                      ") , (", frame_height, ",", frame_width, ") (", floatPserv, " , ", floatTserv, ')')
                 # print("| FPan: ", floatPserv, " | FTilt: ", floatTserv, " | IPan: ", intPserv,
                 #       " | ITilt: ", intTserv)
     # Display the resulting frame
