@@ -71,9 +71,12 @@ Dx = 0
 Di = 0
 motor1.set_goal_position(512)
 motor2.set_goal_position(383)
-
+cap.set(3, 1280)
+cap.set(4, 720)
 
 # Function to handle mouse clicks
+
+
 def select_color(event, x, y, flags, param):
     global color_to_track, lower_color_bound, upper_color_bound, tracking_enabled
 
