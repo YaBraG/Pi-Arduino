@@ -159,6 +159,8 @@ while True:
                     if -targetsquare+5 < errorX < targetsquare+5:
                         i = i + (Ix * errorX)
                     pid = p + i + d
+                    floatPserv=floatPserv + pid
+
                     # if relative_x < 0:
                     #     pan_x = "pan left"
                     #     floatPserv = floatPserv+addition
@@ -171,19 +173,17 @@ while True:
                     # elif relative_y > 0:
                     #     tilt_y = "tilt up"
                     #     floatTserv = floatTserv+addition
-                    # if floatPserv > dinamixLim:
-                    #     floatPserv = dinamixLim
-                    # if floatPserv < 0:
-                    #     floatPserv = 0
-                    # if floatTserv > dinamixLim:
-                    #     floatTserv = dinamixLim
-                    # if floatTserv < 0:
-                    #     floatTserv = 0
-                    # floatPserv = round(floatPserv, 2)
-                    # floatTserv = round(floatTserv, 2)
-                    # intPserv = int(floatPserv)
-                    # intTserv = int(floatTserv)
-                    # motor1.set_goal_position(intPserv)
+
+                    if floatPserv > dinamixLim: floatPserv = dinamixLim
+                    if floatPserv < 0:          floatPserv = 0
+                    if floatTserv > dinamixLim: floatTserv = dinamixLim
+                    if floatTserv < 0:          floatTserv = 0
+
+                    floatPserv = round(floatPserv, 2)
+                    floatTserv = round(floatTserv, 2)
+                    intPserv = int(floatPserv)
+                    intTserv = int(floatTserv)
+                    motor1.set_goal_position(intPserv)
                     # motor2.set_goal_position(intTserv)
                     previous_errorX = errorX
                     print(pid," | ", cX, " | ", center_x)
