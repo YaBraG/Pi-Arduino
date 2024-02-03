@@ -159,7 +159,7 @@ while True:
                     if -targetsquare+5 < errorX < targetsquare+5:
                         i = i + (Ix * errorX)
                     pid = p + i + d
-                    floatPserv=floatPserv + pid
+                    floatPserv=floatPserv - pid
 
                     # if relative_x < 0:
                     #     pan_x = "pan left"
