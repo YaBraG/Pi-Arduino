@@ -69,6 +69,7 @@ targetsquare = 25
 Px = 1
 Dx = 0
 Ix = 0
+i = 0
 previous_errorX = 0
 motor1.set_goal_position(512)
 motor2.set_goal_position(383)
