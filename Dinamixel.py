@@ -66,9 +66,9 @@ tilt_y = ""
 addition = 3.5
 dinamixLim = 1023
 targetsquare = 25
-Px = 1
-Dx = 0
-Ix = 0
+Px = 3.2
+Dx = 1.8
+Ix = 0.007
 i = 0
 previous_errorX = 0
 motor1.set_goal_position(512)
@@ -159,7 +159,7 @@ while True:
                     if -targetsquare+5 < errorX < targetsquare+5:
                         i = i + (Ix * errorX)
                     pid = p + i + d
-                    floatPserv=floatPserv - pid
+                    floatPserv = floatPserv - pid
 
                     # if relative_x < 0:
                     #     pan_x = "pan left"
@@ -174,10 +174,14 @@ while True:
                     #     tilt_y = "tilt up"
                     #     floatTserv = floatTserv+addition
 
-                    if floatPserv > dinamixLim: floatPserv = dinamixLim
-                    if floatPserv < 0:          floatPserv = 0
-                    if floatTserv > dinamixLim: floatTserv = dinamixLim
-                    if floatTserv < 0:          floatTserv = 0
+                    if floatPserv > dinamixLim:
+                        floatPserv = dinamixLim
+                    if floatPserv < 0:
+                        floatPserv = 0
+                    if floatTserv > dinamixLim:
+                        floatTserv = dinamixLim
+                    if floatTserv < 0:
+                        floatTserv = 0
 
                     floatPserv = round(floatPserv, 2)
                     floatTserv = round(floatTserv, 2)
@@ -186,7 +190,7 @@ while True:
                     motor1.set_goal_position(intPserv)
                     # motor2.set_goal_position(intTserv)
                     previous_errorX = errorX
-                    print(pid," | ", cX, " | ", center_x)
+                    print(pid, " | ", cX, " | ", center_x)
 
                 # print("Relative Position: (", relative_x, " , ", relative_y,
                 #       ") , (", frame_height, ",", frame_width, ") (", floatPserv, " , ", floatTserv, ')')
