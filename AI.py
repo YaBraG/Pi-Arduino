@@ -75,9 +75,8 @@ result = chain.invoke({"query": question})
 print(result['result'])
 '''
 
-from langchain_unstructured import UnstructuredLoader
+from langchain_community.document_loaders import PyPDFLoader
 
-loader = UnstructuredLoader("./ai_adoption_framework_whitepaper.pdf")
-docs = loader.load()
-
-print(docs)
+loader = PyPDFLoader("./ai_adoption_framework_whitepaper.pdf",extract_images=True)
+pages = loader.load()
+print(pages)
