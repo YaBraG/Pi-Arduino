@@ -80,4 +80,4 @@ from langchain_unstructured import UnstructuredLoader
 loader = UnstructuredLoader("./ai_adoption_framework_whitepaper.pdf")
 docs = loader.load()
 
-print(docs[0])
+print(docs)
